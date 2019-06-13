@@ -5,6 +5,7 @@
   "dependencies": {
     "@material-ui/core": "^4.1.0",
     "@material-ui/icons": "^4.1.0",
+    "eslint": "^5.16.0",
     "install": "^0.12.2",
     "npm": "^6.9.0",
     "react": "^16.8.6",
@@ -12,10 +13,10 @@
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
+    "react-split-pane": "^0.1.87",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
-    "snoowrap": "^1.16.0",
-    "typescript": "^3.5.1"
+    "snoowrap": "^1.16.0"
   },
   "scripts": {
     "start": "react-scripts start",

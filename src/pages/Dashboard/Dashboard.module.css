@@ -1,0 +1,6 @@
+@import '../../styles/variables.css';
+
+.dashboard {
+    position: relative;
+    height: 100%;
+}

@@ -1,0 +1,6 @@
+@import '../../styles/variables.css';
+
+.footer {
+    flex-shrink: 0;
+    background: lightblue;
+}

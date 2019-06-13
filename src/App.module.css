@@ -1,0 +1,8 @@
+@import './styles/variables.css';
+
+.app {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}

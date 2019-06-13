@@ -1,0 +1,5 @@
+@import './styles/variables.css';
+
+.content {
+    flex-grow: 1;
+}

@@ -1,0 +1,8 @@
+@import '../../styles/variables.css';
+
+.panelContainer {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 15px;
+}
