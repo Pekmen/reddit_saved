@@ -1,6 +1,7 @@
 import React from "react";
 import queryString from "query-string";
 import axios from "axios";
+import snoowrap from "snoowrap";
 import authData from "reddit/authData";
 import { REDDIT_TOKEN_URL } from "constants/api";
 
@@ -8,14 +9,13 @@ class AuthRedirect extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      queryParams: {}
+      userInfo: ""
     };
   }
 
   componentDidMount() {
     const { location } = this.props;
     const queryParams = queryString.parse(location.search);
-    console.log("queryParams___", queryParams);
     const tokenData = {
       grant_type: "authorization_code",
       code: queryParams.code,
@@ -30,10 +30,21 @@ class AuthRedirect extends React.PureComponent {
         }
       })
       .then(response => {
-        console.log("response___", response);
+        if (response.status === 200 && response.data) {
+          const snooData = {
+            userAgent: navigator.userAgent,
+            clientId: process.env.REACT_APP_R_CLIENT_ID,
+            clientSecret: process.env.REACT_APP_R_CLIENT_SECRET,
+            refreshToken: response.data.refresh_token
+          };
+          const snoo = new snoowrap(snooData);
+          snoo.getMe().then(userInfo => {
+            this.setState({ userInfo });
+          });
+        }
       })
       .catch(error => {
-        console.error("error___", error);
+        console.error(error);
       });
     this.setState({
       queryParams: queryString.parse(location.search)
@@ -41,7 +52,10 @@ class AuthRedirect extends React.PureComponent {
   }
 
   render() {
-    return <div>Please wait...</div>;
+    const { userInfo } = this.state;
+    return (
+      <div>{userInfo.info ? "Please wait..." : <p>{userInfo.name}</p>}</div>
+    );
   }
 }
 
