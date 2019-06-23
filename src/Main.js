@@ -5,6 +5,7 @@ import Home from "pages/Home/Home";
 import Dashboard from "pages/Dashboard/Dashboard";
 import About from "pages/About/About";
 import Contact from "pages/Contact/Contact";
+import AuthRedirect from "pages/AuthRedirect/AuthRedirect";
 
 import styles from "./Main.module.css";
 
@@ -13,7 +14,8 @@ function Main() {
     <Router>
       <main className={styles.content}>
         <Route exact path="/" component={Home} />
-        <Route path="/Dashboard" component={Dashboard} />
+        <Route path="/dashboard" component={Dashboard} />
+        <Route path="/auth-redirect" component={AuthRedirect} />
         <Route path="/about" component={About} />
         <Route path="/contact" component={Contact} />
       </main>
