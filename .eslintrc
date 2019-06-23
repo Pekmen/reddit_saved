@@ -1,7 +1,27 @@
 {
-  "extends": "react-app",
-  "plugins": ["prettier"],
+  "extends": ["airbnb", "prettier"],
+  "plugins": ["prettier", "react"],
   "rules": {
-    "prettier/prettier": "error"
+    "max-len": [
+      "error",
+      {
+        "code": 100
+      }
+    ],
+    "prefer-promise-reject-errors": ["off"],
+    "react/jsx-filename-extension": ["off"],
+    "react/prop-types": ["warn"],
+    "no-return-assign": ["off"],
+    "new-cap": ["off"]
+  },
+  "env": {
+    "browser": true
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["src"]
+      }
+    }
   }
 }

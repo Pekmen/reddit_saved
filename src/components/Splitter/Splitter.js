@@ -3,7 +3,8 @@ import SplitPane from "react-split-pane";
 import "./Splitter.css";
 
 function Splitter(props) {
-  return <SplitPane {...props}>{props.children}</SplitPane>;
+  const { children } = props;
+  return <SplitPane {...props}>{children}</SplitPane>;
 }
 
 export default Splitter;
